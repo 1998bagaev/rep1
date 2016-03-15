@@ -1,0 +1,114 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+	char a1_[256];
+	std::ifstream file1("text1.txt");
+	char a2_[256];
+	std::ifstream file2("text2.txt");
+
+	setlocale(LC_ALL, "rus");
+	if (!file1.is_open())
+	{
+		std::cout << "Нет первого файла.\n";
+	}
+
+	if (!file2.is_open())
+	{
+		std::cout << "Нет второго файла.\n";
+		system("pause");
+		return 0;
+	}
+
+	std::cout << "Текст в первом файле:\n";
+	while (!file1.eof())
+	{
+		file1.getline(a1_, 256);
+		std::cout << a1_ << std::endl;
+	}
+	std::cout << "\n";
+	std::cout << "Текст во втором файле:\n";
+	while (!file2.eof())
+	{
+		file2.getline(a2_, 256);
+		std::cout << a2_ << std::endl;
+	}
+	std::cout << "\n";
+
+	if (file1.eof())
+	{
+		file1.close();
+		file1.open("text1.txt");
+	}
+	if (file2.eof())
+	{
+		file2.close();
+		file2.open("text2.txt");
+	}
+
+	std::cout << "Отличие первого файла:";
+
+	std::string first, second;
+	while (getline(file1, first))
+	{
+		bool is_different = true;
+		file2.seekg(0); 
+		while (getline(file2, second))
+		{
+			if (first == second)
+			{
+				is_different = false;
+				break;
+			}
+		}
+		if (is_different)
+			std::cout << first << std::endl;
+		if (file2.eof())
+		{
+			file2.close();
+			file2.open("text2.txt");
+		}
+	}
+
+	if (file1.eof())
+	{
+		file1.close();
+		file1.open("text1.txt");
+	}
+	if (file2.eof())
+	{
+		file2.close();
+		file2.open("text2.txt");
+	}
+
+	std::cout << "Отличие второго файла:";
+
+	while (getline(file2, first))
+	{
+		bool is_different = true;
+		file1.seekg(0); 
+		while (getline(file1, second))
+		{
+			if (first == second)
+			{
+				is_different = false;
+				break;
+			}
+		}
+		if (is_different)
+			std::cout << first << std::endl;
+		if (file1.eof())
+		{
+			file1.close();
+			file1.open("text1.txt");
+		}
+	}
+
+	file1.close();
+	file2.close();
+	system("pause");
+	return 0;
+
+
+}
