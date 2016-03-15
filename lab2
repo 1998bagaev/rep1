@@ -1,0 +1,31 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+	char buffer1[256];
+	ifstream file1("text1.txt");
+	
+
+	cout << "File1:\n";
+	while (!file1.eof())
+	{
+		file1.getline(buffer1, 256);
+		cout << buffer1 << endl;
+	}
+
+	
+
+	cout << "Compare of the text files:";
+	if (strstr(buffer1, /*buffer1*/)
+	{
+		cout << "/*buffer1*/";
+	}
+	file1.close();
+	
+	system("pause");
+	return 0;
+}
