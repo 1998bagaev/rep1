@@ -1,0 +1,66 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+struct queue
+{
+	int n;
+	queue *next;
+};
+int main()
+{	int asum = 0; int dsum = 0; int ssum = 0; int sum = 0; int n;
+	switch (n)
+	{
+	case 'add':
+		void add();
+		{
+			queue* p; queue *head; queue *tail; int i;
+			p = new queue;
+			p->n = i;
+			if (head == 0)
+			{
+				head = p;
+			}
+			else
+			{
+				p->next = head;
+				head = p;
+				cout << p << endl;
+			}
+
+
+		}
+		asum++;
+
+	case 'del':
+		void del();
+		{
+			queue *head; queue *tail;
+			if (tail == 0)
+			{
+				throw std::string("Queue is empty!");
+			}
+			queue* p = tail;
+			tail = tail->next;
+			delete p;
+		}
+		dsum++;
+
+	case 's':
+		void search();
+		{
+			queue *head; queue *tail;
+			if (tail == 0)
+			{
+				throw std::string("Queue is empty!");
+			}
+			return tail->n;
+			cout << tail << endl;
+		}
+		ssum++;
+
+		sum += asum + dsum + ssum;
+		break;
+	}
+	cout << sum << endl;
+}
