@@ -1,0 +1,56 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+struct spisok
+{
+	int n;
+	spisok *next;
+};
+int main()
+{
+	int asum = 0; int dsum = 0; int ssum = 0; int sum = 0; int n;
+	switch (n)
+	{
+	case 'add':
+		void add();
+		{
+			spisok *first = 0; int n;
+			spisok *p; int i;
+			p = new spisok;
+			for (int i = 1; i < n && p != NULL; i++)
+				p->n = i;
+			p->next = first;
+			first = p;
+			cout << p << endl;
+		}
+		asum++;
+
+	case 'del':
+		void del();
+		{
+			spisok *p; int n;
+			for (int i = 1; i < n && p != NULL; i++)
+				p = p->next;
+			delete(p);
+		}
+		dsum++;
+
+	case 's':
+		void search();
+		{
+			spisok *p; int c; int n;
+			p = new spisok;
+			for (int i = 1; i < n && p != NULL; i++)
+			if (p->n = i)
+				c += p->n;
+			cout << c << endl;
+		}
+		ssum++;
+
+		sum += asum + dsum + ssum;
+			break;
+	}
+	cout << sum << endl;
+}
+
+
