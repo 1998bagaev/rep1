@@ -1,0 +1,70 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+struct steck
+{
+	int n;
+	steck *next;
+};
+int main()
+{
+	int asum = 0; int dsum = 0; int ssum = 0; int sum = 0; int n;
+	switch (n)
+	{
+	case 'add':
+		void add();
+		{
+			steck* p; steck *head; steck *tail; int i;
+			p = new steck;
+			p->n = i;
+			if (tail == 0)
+			{
+				tail = p;
+			}
+			else
+			{
+				p->next = tail;
+				tail = p;
+				cout << p << endl;
+			}
+
+			
+		}
+		asum++;
+
+	case 'del':
+		void del();
+		{
+			steck *head; steck *tail;
+			if (tail == 0)
+			{
+				throw std::string("Stack is empty!");
+			}
+			steck* p = tail;
+			tail = tail->next;
+			delete p;
+			
+
+
+		}
+		dsum++;
+
+	case 's':
+		void search();
+		{
+			steck *head; steck *tail;
+			if (tail == 0)
+			{
+				throw std::string("Stack is empty!");
+			}
+			return tail->n;
+			cout << tail << endl;
+		}
+		ssum++;
+
+		sum += asum + dsum + ssum;
+		break;
+	}
+	cout << sum << endl;
+}
