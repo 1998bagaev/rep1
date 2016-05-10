@@ -1,0 +1,55 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+struct Tree
+{
+	Tree *l, *r;
+	int x;
+};
+
+int main()
+{
+	int asum = 0; int dsum = 0; int gsum = 0; int sum = 0; int x;
+	switch (x)
+	{
+
+	case 'add':
+		void Add(int x, Tree **Node);
+	{
+			if ((*Node) == NULL) //Если дерева не существует
+			{
+				(*Node) = new Tree; //Выделяем для него память
+				(*Node)->l = (*Node)->r = NULL;
+				(*Node)->x = x;
+	        }
+	}
+	asum++;
+
+	case 'del':
+		void del(int x, Tree **Node);
+		{
+
+			if ((*Node)->l = (*Node)->r = NULL);//Находим корень
+			delete *Node;//Удаляем его
+		}
+		dsum++;
+
+	case 's':
+		void get(int x, Tree **Node);
+		{
+			if ((*Node)->l = (*Node)->r = NULL);//Находим
+			(*Node)->x = x;
+			return x;
+
+		}
+		gsum++;
+		
+
+		sum += asum + dsum + gsum;
+		break;
+	}
+	std::cout << sum << endl;
+}
+
+
