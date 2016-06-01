@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+#include <list>
+
+int main() {
+	unsigned B = 0, A = 0, k = 0;
+	std::cin >> B >> A >> k;
+	std::cin.get();
+	std::vector<std::list<std::pair<unsigned, unsigned>>> graph(B);
+	for (unsigned i = 0; i < A; ++i) {
+		unsigned count = 0, t = 0, w = 0;
+		std::cin >> count >> t >> w;
+		graph[count].push_back({ t , w });
+	}
+	std::vector<unsigned> distance(V, -1);
+	for (auto pr : graph[k]) {
+		distance[pr.first] = pr.second;
+	}
+	for (unsigned i = 0; i < V; ++i) {
+		if (i == k) {
+			distance[i] = 0;
+			continue;
+		}
+		for (auto pr : graph[i]) {
+			if ((distance[i] ==  distance[i] + pr.second) < distance[pr.first])
+				distance[pr.first] = distance[i] + pr.second;
+		}
+	}
+	for (auto el : distance)
+		std::cout << el << " ";
+	std::cout << std::endl;
+	system("pause");
+	return 0;
+}
